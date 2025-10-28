@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎂</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      overflow: hidden;
+      background: linear-gradient(135deg, #1273ea, #a542b6, #49cefa);
+      font-family: "Cairo", sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: #fff;
+      text-align: center;
+      position: relative;
+    }
+
+    h1 {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: 3em;
+      text-shadow: 2px 2px 10px #ff69b4;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #fff; }
+      to { text-shadow: 0 0 20px #ff1493; }
+    }
+
+    button {
+      background: #ff0080;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1.2em;
+      border-radius: 25px;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #ff1493;
+      transform: scale(1.1);
+    }
+
+    
+
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+    }
+
+    #message {
+      margin-top: 20px;
+      font-size: 1.5em;
+      color: #000000;
+      display: none;
+      animation: fadeIn 2s forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    #birthday-img {
+      display: none;
+      width: 420px;
+      margin-top: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.6);
+      animation: pop 1s ease forwards;
+    }
+
+    @keyframes pop {
+      from { transform: scale(0); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+   
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      opacity: 0.9;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(720deg); }
+    }
+  </style>
+</head>
+<body>
+  <h1> Happy Birthday Baraaaa <br>🎉💖  </h1>
+  <button onclick="startCelebration()">click here</button>
+  
+  <img id="birthday-img" src="baraa.jpg">
+  <div id="message">انشالله كل عام و انتي ب ألف خير بدبدد🥳<br>عقبال ما تحققي كل اهدافك و تصيري بزنس وومن قد الدنيا💖</div>
+
+  <script>
+    
+   
+
+    function startCelebration() {
+      const msg = document.getElementById('message');
+      const img = document.getElementById('birthday-img');
+      msg.style.display = 'block';
+      img.style.display = 'block';
+
+      
+      for (let i = 0; i < 80; i++) {
+        let confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.left = Math.random() * 100 + 'vw';
+        confetti.style.top = Math.random() * -20 + 'vh';
+        confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 80%, 60%)`;
+        confetti.style.animationDuration = 3 + Math.random() * 4 + 's';
+        confetti.style.animationDelay = Math.random() * 2 + 's';
+        document.body.appendChild(confetti);
+        setTimeout(() => confetti.remove(), 7000);
+      }
+    }
+  </script>
+</body>
+</html>
